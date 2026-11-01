@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Studio"
+  short_description: "Cinematic AI video planning, motion and rendering"
+  default_prompt: "Use $video-studio to create a polished video with editable source and a verified final render."
