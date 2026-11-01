@@ -1,3 +1,5 @@
+![Video Studio — from first idea to final frame](assets/banner.svg)
+
 # Video Studio
 
 A portable AI video production skill for **Claude Code and Codex**.
