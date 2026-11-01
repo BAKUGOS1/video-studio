@@ -98,7 +98,8 @@ If execution tools are unavailable, the skill delivers a script, storyboard, pro
 ## Requirements and costs
 
 - Planning and creative direction need only an agent that can read skill files.
-- Rendering needs a compatible Node.js runtime and the selected engine's dependencies.
+- Rendering needs a compatible Node.js runtime and the selected engine's dependencies. Output checks use ffmpeg/ffprobe when installed.
+- Remotion is free for individuals and small companies; larger for-profit companies need a paid [company license](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md). HyperFrames is Apache-2.0.
 - fal.ai generation needs configured credentials and a funded account.
 - Voice, stock, music, and hosted generation services may have separate costs and terms.
 - Installing this skill does not install engines or grant provider access.

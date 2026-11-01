@@ -1,6 +1,6 @@
 ---
 name: video-studio
-description: Plan, create, edit, preview, and render polished AI-assisted videos, product promos, explainers, and cinematic multi-shot stories. Combines HyperFrames or Remotion rendering, Shotcraft-style product direction, and fal.ai footage workflows.
+description: Plan, create, edit, preview, and render polished AI-assisted videos, product promos, explainers, and cinematic multi-shot stories. Combines HyperFrames or Remotion rendering, Shotcraft-style product direction, and fal.ai footage workflows. Use when the user asks to make, script, storyboard, edit, or render a video, reel, promo, launch film, explainer, ad, trailer, demo video, animated intro, or motion graphic, or to generate AI footage or shot prompts, even if they don't name a tool. Skip for still images, slide decks, and questions about video that change nothing.
 ---
 
 # Video Studio
@@ -26,7 +26,7 @@ Before engine work, read references/engines.md. For cinematic shots and product 
 
 Infer what the conversation already gives: audience, message, duration, aspect ratio, language, brand, assets, narration, output path, and cost constraints. Ask only for missing inputs that materially prevent progress. For an otherwise unspecified short promo, state assumptions: 20 seconds, 1920x1080, 30 fps, one clear message. Do not assume permission for paid generation from those defaults.
 
-Inspect actual logos, screenshots, footage, fonts, source code, and applicable project instructions before inventing visuals. Use real product UI and accurate copy. Apply repository brand rules when working in that repository; do not force Phere styling on unrelated brands.
+Inspect actual logos, screenshots, footage, fonts, source code, and applicable project instructions before inventing visuals. Use real product UI and accurate copy. Apply a repository's brand rules (its AGENTS.md, CLAUDE.md and the brand docs they point to) when working in that repository; never carry one brand's styling into another.
 
 Write a concise brief and shot list before implementation. Each shot needs its purpose, frame range, visual asset, copy/narration, movement, transition, and audio cue. Give each shot enough time to read; narration length determines timing when supplied. Establish the opening promise and a final payoff or useful CTA.
 
@@ -53,7 +53,7 @@ Produce a draft preview before an expensive full-resolution render. Inspect the 
 
 ## Verify and deliver
 
-Render using the selected engine's documented commands. Inspect the actual result with available media tools: duration, dimensions, frame rate, codec, start/end frames, and audio tracks. Play/listen where supported. State any QA that could not be performed. Never equate successful compilation with successful rendering.
+Render using the selected engine's documented commands. Inspect the actual result with available media tools (ffprobe and ffmpeg recipes in references/engines.md): duration, dimensions, frame rate, codec, pixel format, start/end frames, and audio tracks. Play/listen where supported. State any QA that could not be performed. Never equate successful compilation with successful rendering.
 
 Deliver:
 - Final video, if rendering succeeded.
