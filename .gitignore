@@ -7,3 +7,7 @@ Thumbs.db
 *.log
 dist/
 outputs/
+
+# Example renders and HyperFrames caches
+examples/*/renders/
+examples/*/.hyperframes/

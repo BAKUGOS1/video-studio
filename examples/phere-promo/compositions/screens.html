@@ -1,0 +1,141 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+    }
+    #sc-stage {
+      position: absolute;
+      inset: 0;
+    }
+    /* Copy column */
+    .sc-copy {
+      position: absolute;
+      left: 200px;
+      top: 360px;
+      width: 820px;
+      color: var(--ink);
+      opacity: 0;
+    }
+    .sc-step {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 28px;
+      letter-spacing: 0.18em;
+      color: #8a6418;
+    }
+    .sc-head {
+      font-family: var(--serif);
+      font-size: 96px;
+      line-height: 1.02;
+      margin-top: 22px;
+    }
+    .sc-head em {
+      color: var(--maroon);
+    }
+    .sc-sub {
+      font-family: var(--sans);
+      font-size: 36px;
+      line-height: 1.35;
+      color: var(--muted);
+      margin-top: 30px;
+    }
+    /* Phone */
+    #sc-phone {
+      position: absolute;
+      left: 1170px;
+      top: 70px;
+      width: 440px;
+      height: 940px;
+      border-radius: 64px;
+      background: #1d1512;
+      padding: 14px;
+      box-shadow:
+        0 40px 80px rgba(74, 20, 30, 0.22),
+        0 8px 20px rgba(42, 26, 18, 0.18);
+    }
+    #sc-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 52px;
+      overflow: hidden;
+      background: var(--ground);
+    }
+    .sc-img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: auto;
+    }
+    #sc-label {
+      position: absolute;
+      left: 1010px;
+      width: 760px;
+      top: 1022px;
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 28px;
+      color: var(--muted);
+    }
+  </style>
+  <div id="root" data-composition-id="screens" data-width="1920" data-height="1080">
+    <div id="sc-stage" class="clip" data-start="0" data-duration="9">
+      <div id="sc-c1" class="sc-copy">
+        <div class="sc-step">01 · BUDGET</div>
+        <div class="sc-head">Budget, paid<br />and <em>pending.</em></div>
+        <div class="sc-sub">One card shows where the money stands.</div>
+      </div>
+      <div id="sc-c2" class="sc-copy">
+        <div class="sc-step">02 · GUESTS</div>
+        <div class="sc-head">Every household.<br /><em>Every RSVP.</em></div>
+        <div class="sc-sub">Search a family, see who is coming.</div>
+      </div>
+      <div id="sc-c3" class="sc-copy">
+        <div class="sc-step">03 · SHAGUN</div>
+        <div class="sc-head">Every shagun,<br /><em>found by name.</em></div>
+        <div class="sc-sub">Who gave what, at which function.</div>
+      </div>
+
+      <div id="sc-phone">
+        <div id="sc-screen" data-layout-allow-overflow>
+          <img id="sc-i1" class="sc-img" src="assets/screens/dashboard.jpg" alt="Phere home dashboard" />
+          <img id="sc-i2" class="sc-img" src="assets/screens/guests.jpg" alt="Phere guests list" />
+          <img id="sc-i3" class="sc-img" src="assets/screens/shagun.jpg" alt="Phere shagun register" />
+        </div>
+      </div>
+      <div id="sc-label">Actual Phere screen · demonstration data</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const copyFrom = { opacity: 0, y: 40 };
+    const copyIn = { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" };
+    const copyOut = { opacity: 0, y: -40, duration: 0.35, ease: "power2.in" };
+
+    // Phone rises in
+    tl.fromTo("#sc-phone", { y: 260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power4.out" }, 0);
+    tl.fromTo("#sc-label", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.6);
+
+    // Beat 1: budget (0-3 s). The dashboard drifts up to show the cards below.
+    tl.fromTo("#sc-c1", copyFrom, copyIn, 0.25);
+    tl.fromTo("#sc-i1", { y: 0 }, { y: -120, duration: 2.4, ease: "sine.inOut" }, 0.5);
+    tl.to("#sc-c1", copyOut, 2.65);
+
+    // Beat 2: guests (3-6 s)
+    tl.fromTo("#sc-i2", { yPercent: 100 }, { yPercent: 0, duration: 0.6, ease: "power3.inOut" }, 2.8);
+    tl.fromTo("#sc-c2", copyFrom, copyIn, 3.15);
+    tl.to("#sc-c2", copyOut, 5.65);
+
+    // Beat 3: shagun (6-9 s)
+    tl.fromTo("#sc-i3", { yPercent: 100 }, { yPercent: 0, duration: 0.6, ease: "power3.inOut" }, 5.8);
+    tl.fromTo("#sc-c3", copyFrom, copyIn, 6.15);
+
+    // Exit
+    tl.to(["#sc-c3", "#sc-label"], { opacity: 0, duration: 0.35, ease: "power2.in" }, 8.5);
+    tl.to("#sc-phone", { y: 120, opacity: 0, duration: 0.45, ease: "power2.in" }, 8.5);
+
+    window.__timelines["screens"] = tl;
+  </script>
+</template>

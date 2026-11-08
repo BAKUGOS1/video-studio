@@ -6,6 +6,12 @@ A portable AI video production skill for **Claude Code and Codex**.
 
 Turn a brief into a storyboard, generated assets, editable motion design, and a verified final video. One workflow selects the right tools for the job.
 
+## Demo
+
+![A 16-second Phere promo made with video-studio](assets/demo-phere-promo.gif)
+
+A 16-second promo for [Phere](https://phere.tech), a wedding planning app, made with video-studio and HyperFrames from the app's real screens. The full process is in [examples/phere-promo](examples/phere-promo): the brief, the shot list, the asset manifest and the editable compositions. No generated footage and no paid services. The render was checked with ffprobe: 1920×1080, 30 fps, H.264, 16.0 s.
+
 ## Install
 
 Ask your coding agent:
@@ -104,6 +110,14 @@ If execution tools are unavailable, the skill delivers a script, storyboard, pro
 - Voice, stock, music, and hosted generation services may have separate costs and terms.
 - Installing this skill does not install engines or grant provider access.
 - Configure secrets through your provider or local environment; never paste API keys into issues.
+
+## Examples
+
+| Example | Engine | What it shows |
+| --- | --- | --- |
+| [phere-promo](examples/phere-promo) | HyperFrames | A brief and shot list turned into an editable 16-second product promo from real app screenshots |
+
+Run it locally from that folder: `npm run dev` for the preview, `npm run render` for an MP4. The Phere screens and logo are included only for this example and are not covered by the MIT license.
 
 ## Files
 

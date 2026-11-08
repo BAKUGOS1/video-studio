@@ -1,0 +1,62 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+    }
+    #out-wrap {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 250px;
+      text-align: center;
+    }
+    #out-logo {
+      width: 560px;
+      height: auto;
+    }
+    #out-line {
+      font-family: var(--serif);
+      font-size: 84px;
+      color: var(--ink);
+      margin-top: 30px;
+    }
+    #out-line em {
+      color: var(--maroon);
+    }
+    #out-cta {
+      display: inline-block;
+      margin-top: 44px;
+      padding: 22px 46px;
+      border-radius: 999px;
+      background: var(--maroon);
+      color: #fff7ec;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 36px;
+    }
+    #out-url {
+      font-family: var(--sans);
+      font-size: 28px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-top: 26px;
+    }
+  </style>
+  <div id="root" data-composition-id="outro" data-width="1920" data-height="1080">
+    <div id="out-wrap" class="clip" data-start="0" data-duration="4">
+      <img id="out-logo" src="assets/phere-logo.png" alt="Phere" />
+      <div id="out-line">One place for the <em>whole wedding.</em></div>
+      <div id="out-cta">Start your free trial today.</div>
+      <div id="out-url">phere.tech</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#out-logo", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }, 0.05);
+    tl.fromTo("#out-line", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.25);
+    tl.fromTo("#out-cta", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.45);
+    tl.fromTo("#out-url", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.6);
+    window.__timelines["outro"] = tl;
+  </script>
+</template>

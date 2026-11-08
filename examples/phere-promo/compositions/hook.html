@@ -1,0 +1,57 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+    }
+    #hook-wrap {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 330px;
+      text-align: center;
+      color: var(--ink);
+    }
+    .hook-line {
+      font-family: var(--serif);
+      font-size: 96px;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+    #hook-key {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 190px;
+      line-height: 1;
+      color: var(--maroon);
+      margin-top: 18px;
+    }
+    #hook-rule {
+      width: 160px;
+      height: 4px;
+      background: var(--gold);
+      margin: 44px auto 0;
+    }
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1920" data-height="1080">
+    <div id="hook-wrap" class="clip" data-start="0" data-duration="3">
+      <div id="hook-l1" class="hook-line">The wedding budget lives in</div>
+      <div id="hook-key">five notebooks.</div>
+      <div id="hook-rule"></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // The first line is already on screen at frame 0 (the thumbnail); it settles slightly.
+    tl.fromTo("#hook-l1", { y: 12 }, { y: 0, duration: 0.6, ease: "power2.out" }, 0);
+    tl.fromTo(
+      "#hook-key",
+      { opacity: 0, y: 60, scale: 0.92 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "power4.out" },
+      0.3,
+    );
+    tl.fromTo("#hook-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power2.out" }, 0.8);
+    tl.to("#hook-l1, #hook-key, #hook-rule", { opacity: 0, y: -80, duration: 0.45, ease: "power2.in", stagger: 0.05 }, 2.45);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>
